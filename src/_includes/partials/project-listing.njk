@@ -1,0 +1,28 @@
+<article
+  class="project-listing"
+  data-year="{{ project.data.year }}"
+  data-category="{{ project.data.category }}"
+  data-location="{{ project.data.location }}"
+  data-lang="{{ project.data.lang }}"
+  data-translation-key="{{ project.data.translationKey }}"
+>
+  <a class="project-listing__link" href="{{ project.url | url }}">
+    {% if project.data.cover %}
+      <img
+        class="project-listing__image"
+        src="{{ project.data.cover | url }}"
+        alt="{{ project.data.coverAlt | default(project.data.title) }}"
+        loading="lazy"
+        decoding="async"
+      >
+    {% endif %}
+    <span class="project-listing__text">
+      <span class="project-listing__title">{{ project.data.title }}</span>
+      <span class="project-listing__meta">
+        {% if project.data.year %}{{ project.data.year }}{% endif %}
+        {% if project.data.category %}<span>{{ project.data.category }}</span>{% endif %}
+        {% if project.data.location %}<span>{{ project.data.location }}</span>{% endif %}
+      </span>
+    </span>
+  </a>
+</article>

@@ -1,0 +1,59 @@
+---
+layout: layouts/base.njk
+---
+{% set currentLang = lang | default(site.defaultLang) %}
+{% set t = i18n[currentLang] %}
+<article class="project">
+  <header class="project-header">
+    <p class="eyebrow">{{ t.project }}</p>
+    <h1>{{ title }}</h1>
+
+    {% if year or category or location %}
+      <dl class="project-meta" aria-label="{{ t.projectDetails }}">
+        {% if year %}
+          <div>
+            <dt>{{ t.year }}</dt>
+            <dd>{{ year }}</dd>
+          </div>
+        {% endif %}
+        {% if category %}
+          <div>
+            <dt>{{ t.category }}</dt>
+            <dd>{{ category }}</dd>
+          </div>
+        {% endif %}
+        {% if location %}
+          <div>
+            <dt>{{ t.location }}</dt>
+            <dd>{{ location }}</dd>
+          </div>
+        {% endif %}
+      </dl>
+    {% endif %}
+  </header>
+
+  {% if cover %}
+    <figure class="project-cover">
+      <img src="{{ cover | url }}" alt="{{ coverAlt | default(title) }}" loading="eager" decoding="async">
+    </figure>
+  {% endif %}
+
+  <div class="project-body prose">
+    {{ content | safe }}
+  </div>
+
+  {% if images and images.length %}
+    <ol class="project-gallery">
+      {% for image in images %}
+        <li>
+          <figure>
+            <img src="{{ image.src | url }}" alt="{{ image.alt | default(title) }}" loading="lazy" decoding="async">
+            {% if image.caption %}
+              <figcaption>{{ image.caption }}</figcaption>
+            {% endif %}
+          </figure>
+        </li>
+      {% endfor %}
+    </ol>
+  {% endif %}
+</article>

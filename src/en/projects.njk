@@ -1,0 +1,20 @@
+---
+layout: layouts/base.njk
+title: Projects
+description: Project index.
+permalink: /en/projects/
+lang: en
+---
+<section class="page-header">
+  <p class="eyebrow">Index</p>
+  <h1>Projects</h1>
+  <p>All project entries are generated from Markdown files in the project collection.</p>
+</section>
+
+<ol class="project-list project-list--index">
+  {% for project in collections.projects %}
+    {% if project.data.lang == lang %}
+      <li>{% include "partials/project-listing.njk" %}</li>
+    {% endif %}
+  {% endfor %}
+</ol>

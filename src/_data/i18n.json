@@ -1,0 +1,30 @@
+{
+  "fr": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "about": "À propos",
+    "selectedProjects": "Projets sélectionnés",
+    "viewAll": "Tout voir",
+    "project": "Projet",
+    "projectDetails": "Détails du projet",
+    "year": "Année",
+    "category": "Catégorie",
+    "location": "Lieu",
+    "skipLink": "Aller au contenu",
+    "languageSwitch": "Changer de langue"
+  },
+  "en": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "selectedProjects": "Selected Projects",
+    "viewAll": "View all",
+    "project": "Project",
+    "projectDetails": "Project details",
+    "year": "Year",
+    "category": "Category",
+    "location": "Location",
+    "skipLink": "Skip to content",
+    "languageSwitch": "Change language"
+  }
+}

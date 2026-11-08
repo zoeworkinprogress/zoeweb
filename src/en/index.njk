@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+title: Home
+description: A small static portfolio MVP.
+permalink: /en/
+lang: en
+translationKey: home
+---
+<section class="home-intro">
+  <p class="eyebrow">Portfolios</p>
+  <h1>{{ site.title }}</h1>
+  <p>{{ site.description }}</p>
+</section>
+
+<section class="project-section" aria-labelledby="featured-projects">
+  <div class="section-heading">
+    <h2 id="featured-projects">{{ i18n[lang].selectedProjects }}</h2>
+    <a href="{{ '/en/projects/' | url }}">{{ i18n[lang].viewAll }}</a>
+  </div>
+
+  <ol class="project-list">
+    {% for project in collections.projects %}
+      {% if project.data.lang == lang and project.data.featured %}
+        <li>{% include "partials/project-listing.njk" %}</li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+</section>

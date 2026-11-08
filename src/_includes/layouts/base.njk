@@ -1,0 +1,20 @@
+<!doctype html>
+{% set currentLang = lang | default(site.defaultLang) %}
+{% set t = i18n[currentLang] %}
+<html lang="{{ currentLang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ description | default(site.description) }}">
+    <title>{% if title %}{{ title }} | {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{{ t.skipLink }}</a>
+    {% include "partials/header.njk" %}
+    <main id="main" class="site-main">
+      {{ content | safe }}
+    </main>
+    {% include "partials/footer.njk" %}
+  </body>
+</html>

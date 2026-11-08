@@ -1,0 +1,24 @@
+{% set currentLang = lang | default(site.defaultLang) %}
+{% set t = i18n[currentLang] %}
+{% set homeUrl = "/" ~ currentLang ~ "/" %}
+{% set projectsUrl = "/" ~ currentLang ~ "/projects/" %}
+{% set aboutUrl = "/" ~ currentLang ~ "/about/" %}
+{% set frUrl = collections.all | translationUrl(translationKey, "fr") %}
+{% set enUrl = collections.all | translationUrl(translationKey, "en") %}
+<nav class="site-nav" aria-label="Primary navigation">
+  <ul class="nav-list">
+    <li><a href="{{ homeUrl | url }}">{{ t.home }}</a></li>
+    <li><a href="{{ projectsUrl | url }}">{{ t.projects }}</a></li>
+    <li><a href="{{ aboutUrl | url }}">{{ t.about }}</a></li>
+  </ul>
+
+  <ul class="language-switch" aria-label="{{ t.languageSwitch }}">
+    <li>
+      <a href="{{ frUrl | url }}" lang="fr" hreflang="fr"{% if currentLang == "fr" %} class="is-active" aria-current="true"{% endif %}>FR</a>
+    </li>
+    <li aria-hidden="true">/</li>
+    <li>
+      <a href="{{ enUrl | url }}" lang="en" hreflang="en"{% if currentLang == "en" %} class="is-active" aria-current="true"{% endif %}>EN</a>
+    </li>
+  </ul>
+</nav>

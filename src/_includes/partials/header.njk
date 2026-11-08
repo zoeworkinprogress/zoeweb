@@ -1,0 +1,6 @@
+{% set currentLang = lang | default(site.defaultLang) %}
+{% set homeUrl = "/" ~ currentLang ~ "/" %}
+<header class="site-header">
+  <a class="site-title" href="{{ homeUrl | url }}">{{ site.title }}</a>
+  {% include "partials/navigation.njk" %}
+</header>
